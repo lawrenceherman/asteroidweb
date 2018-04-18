@@ -5,6 +5,16 @@
 .grid {
 	display: grid;
 	grid-template-columns:1fr;
+  grid-template-areas:    
+    "hd"
+    "vid"
+    "img1"
+    "img2"
+    "img3"
+    "img4"
+    "img5"
+    "img6"
+    "img7"
   /*
 	grid-auto-rows:300px;
 
@@ -16,6 +26,47 @@
 	*/
 }
 
+.header {
+  grid-area: hd;
+}
+
+.header2 {
+  grid-area: hd2;
+}
+
+.video {
+  grid-area: vid;
+}
+
+.img1 {
+  grid-area: img1;
+}
+
+.img2 {
+  grid-area: img2;
+}
+
+.img3 {
+  grid-area: img3;
+}
+
+.img4 {
+  grid-area: img4;
+}
+
+.img5 {
+  grid-area: img5;
+}
+
+.img6 {
+  grid-area: img6;
+}
+
+.footer {
+  grid-area: ft;
+}
+
+/*j
 .grid > div {
 	background:#eee;
 	padding:1em;
@@ -29,26 +80,41 @@
 .header {
   padding: 0px;
 }
+*/
 
 img {
   padding: 0px;
-
- 
 	width: 100%;
-	height: 100;
 
+	height: 100;
 }
+
+iframe {
+  width: 300px;
+  height: 200px;
+}
+
 
 
 @media(min-width: 420px) {
 	.grid {
 		grid-template-columns:1fr 1fr;
-	}
+    grid-template-areas:
+      "hd2 hd2"
+      "img1 img2"
+      "img2 img3"
+      "img4 img5"
+      "img6 ft"
+  }
+
 }
 
 @media(min-width: 768px) {
 	.grid {
 		grid-template-columns:1fr 1fr 1fr; 
+    grid-template-areas:
+      "hd hd hd"
+      "
 	}
 }
 
