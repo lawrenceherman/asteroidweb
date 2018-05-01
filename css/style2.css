@@ -8,24 +8,21 @@ body {
 	background-color: #FFFF00
 
 }
+
 img {
   padding: 0px;
 	width: 100%;
 
 }
 
-
-.header2 {
-  display: none;
-}  
+  
 
 
 .grid {
 	display: grid;
-/*	grid-template-columns: 1fr;*/
   grid-template-areas:    
     "header"
-    "trailer"    
+    "preview"
     "iphone-img1"
     "iphone-img2"
     "iphone-img3"
@@ -37,7 +34,6 @@ img {
     "footer";
   /*
 	grid-auto-rows:300px;
-
 	grid-column-gap:1em;
 	grid-row-gap:1em;
 	grid-gap:1em;
@@ -46,23 +42,77 @@ img {
 	*/
 }
 
+.preview {
+  grid-area: preview;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+
+.header-grid {
+  display: grid;
+}
+
+.preview iframe {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%
+}
+
+.header-preview {
+  display: none;
+  position: absolute;
+  height: 0;
+  /*
+  top: 50%;
+  left: 50%
+  transform: translate(-50%, -50%);
+  x-index: 1;
+ */k 
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+
+.header-preview iframe {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%
+}
+
+
+.title {
+  position: absolute;
+  width: 100%;
+  color: #FFD700;
+  font-size: 3vw;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
 .header {
   background-color:#cccccc;
   grid-area: header;
+  text-align: center;
 }
 /*
 .header2 {
   grid-area: hd2;
 }
 */
-.trailer {
-  grid-area: trailer;
-}
 
-.iphone-img1 {
-  grid-area: iphone-img1;
+/*
 
+    "preview"
+iframe {
+  width: 100%;
 }
+*/
+
+.iphone-img1 { grid-area: iphone-img1; }
 
 .iphone-img2 {
   grid-area: iphone-img2;
@@ -123,13 +173,25 @@ img {
   }
 */
 
-.trailer {
+.preview {
   display: none;
 }
 
+.header-preview {
+  display: block;
+}
 
 .grid {
+    display: grid;
 		grid-template-columns: 1fr 1fr;
+    /*
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(2, 50vmin);
+    */
+
     grid-template-areas:
       "header      header"
       "iphone-img1 iphone-img2"
@@ -141,15 +203,18 @@ img {
 
 }
 
+/*
+
 @media(min-width: 768px) {
 	.grid {
 		grid-template-columns:1fr 1fr 1fr 1fr; 
     grid-template-areas:
       "header   header    header header"
       "iphone-img1 iphone-img2 iphone-img3 iphone-img4"
-      "ipad-img1   ipad-img2   ipad-img3  ipad-img4";
-      
+      "ipad-img1   ipad-img2   ipad-img3  ipad-img4"
+      "footer      footer      footer     footer"; 
 	}
 }
 
+*/
 
