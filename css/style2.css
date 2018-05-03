@@ -5,18 +5,22 @@
 body {
 	padding: 0;
 	margin: 0;
-	background-color: #FFFF00
-
+  background-color: black;
 }
 
 img {
   padding: 0px;
-	width: 100%;
-
+  max-width: 100%;
+  height: auto; 
 }
 
-  
-
+h1, h2 {
+  padding: 0px;
+  margin: 0px;
+  /*
+  vertical-align: center;
+  */
+}
 
 .grid {
 	display: grid;
@@ -32,14 +36,13 @@ img {
     "ipad-img3"
     "ipad-img4"
     "footer";
+  grid-gap: 1vmin;
   /*
-	grid-auto-rows:300px;
-	grid-column-gap:1em;
-	grid-row-gap:1em;
-	grid-gap:1em;
-	justify-items:stretch;
-	align-items:stretch;
-	*/
+  max-width: 970px;
+  */
+  max-height: 2000px;
+  margin: auto;
+  align-items: center;
 }
 
 .preview {
@@ -50,10 +53,6 @@ img {
   padding-bottom: 56.25%;
 }
 
-.header-grid {
-  display: grid;
-}
-
 .preview iframe {
   width: 100%;
   position: absolute;
@@ -62,16 +61,24 @@ img {
   height: 100%
 }
 
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-area: header;
+  max-height: 650px;
+  max-width: 970px;
+}
+
 .header-preview {
+  align-self: center;
   display: none;
-  position: absolute;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  position: relative;
   height: 0;
-  /*
-  top: 50%;
-  left: 50%
-  transform: translate(-50%, -50%);
-  x-index: 1;
- */k 
   overflow: hidden;
   padding-bottom: 56.25%;
 }
@@ -84,33 +91,55 @@ img {
   height: 100%
 }
 
+.appstorelink {
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
 
 .title {
-  position: absolute;
-  width: 100%;
-  color: #FFD700;
-  font-size: 3vw;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-
-.header {
-  background-color:#cccccc;
-  grid-area: header;
   text-align: center;
+  align-self: center;
+  max-height: 180px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  color: #FFD700;
+  font-size: 3.5vw;
+   z-index: 1; 
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 }
-/*
-.header2 {
-  grid-area: hd2;
-}
-*/
 
-/*
-
-    "preview"
-iframe {
-  width: 100%;
+.linkedinlink {
+  grid-column-start: 3;
+  grid-row-start: 4;
+  justify-self: end;
 }
-*/
+
+.description {
+  align-self: end;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  font-size: 3.5vw;
+  z-index: 1;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  color: #FFD700;
+}
+
+.header-image {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.footer {
+  background-color: black;
+  min-height: 50px;
+}
 
 .iphone-img1 { grid-area: iphone-img1; }
 
@@ -146,75 +175,58 @@ iframe {
   grid-area: footer;
 }
 
-/*
-.grid > div {
-	background:#eee;
-	padding:1em;
-}
-
-.grid > div:nth-child(odd) {
-	background:#ddd;
-
-}
-
-.header {
-  padding: 0px;
-}
-*/
-
-
 @media(min-width: 420px) {
-/*
-  .header {
-    display: none;
-  }
-    .header2 {
-    display: block;
-  }
-*/
 
 .preview {
   display: none;
+}
+
+.description {
+  grid-row-start: 4;
+  align-self: start;
 }
 
 .header-preview {
   display: block;
 }
 
+.appstorelink {
+  align-self: center;
+}
+
+.linkedinlink {
+  align-self: center;
+}
+
 .grid {
     display: grid;
 		grid-template-columns: 1fr 1fr;
-    /*
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: repeat(2, 50vmin);
-    */
-
-    grid-template-areas:
+     grid-template-areas:
       "header      header"
       "iphone-img1 iphone-img2"
       "iphone-img3 iphone-img4"
       "ipad-img1   ipad-img2"
       "ipad-img3   ipad-img4"
       "footer      footer";
+  
   }
 
+
 }
 
-/*
 
-@media(min-width: 768px) {
+@media(min-width: 970px) {
 	.grid {
-		grid-template-columns:1fr 1fr 1fr 1fr; 
-    grid-template-areas:
-      "header   header    header header"
-      "iphone-img1 iphone-img2 iphone-img3 iphone-img4"
-      "ipad-img1   ipad-img2   ipad-img3  ipad-img4"
-      "footer      footer      footer     footer"; 
+  width: 970px;
 	}
+
+  .title h1 {
+    font-size: 70px;
+  }
+
+  .description h2 {
+    font-size: 60px;
+  }
 }
 
-*/
 
