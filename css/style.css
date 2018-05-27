@@ -1,100 +1,232 @@
-header {
-  background-color: black;
-  padding: 50px;
-}
-
-header h1 {
-  /* background-color: black; */
-  color: orange;
-  text-align: center;
-  /* float: right; */
+* {
+	box-sizing: border-box;
 }
 
 body {
-
-  margin: 0;
-  padding: 0;
+	padding: 0;
+	margin: 0;
+  background-color: black;
 }
 
-.container {
+img {
+  padding: 0px;
+  max-width: 100%;
+  height: auto; 
+}
+
+h1, h2 {
+  padding: 0px;
+  margin: 0px;
+  /*
+  vertical-align: center;
+  */
+}
+
+.grid {
+	display: grid;
+  grid-template-areas:    
+    "header"
+    "preview"
+    "iphone-img1"
+    "iphone-img2"
+    "iphone-img3"
+    "iphone-img4"
+    "ipad-img1"
+    "ipad-img2"
+    "ipad-img3"
+    "ipad-img4"
+    "footer";
+  grid-gap: 1vmin;
+  /*
+  max-width: 970px;
+  */
+  max-height: 2000px;
+  margin: auto;
+  align-items: center;
+}
+
+.preview {
+  grid-area: preview;
   position: relative;
-  text-align: center;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+
+.preview iframe {
   width: 100%;
-  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%
 }
 
-
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-area: header;
+  max-height: 650px;
+  max-width: 970px;
 }
 
-.top-left {
+.header-preview {
+  align-self: center;
+  display: none;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+
+.header-preview iframe {
+  width: 100%;
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: 0;
+  left: 0;
+  height: 100%
+}
+
+.appstorelink {
+  grid-column-start: 2;
+  grid-row-start: 4;
 }
 
 .title {
-  position: absolute;
-  width: 100%;
-
+  text-align: center;
+  align-self: center;
+  max-height: 180px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  color: #FFD700;
+  font-size: 3.5vw;
+   z-index: 1; 
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
 }
 
-.top-right {
-  position: absolute;
-  top: 8px;
-  right: 16px;
+.linkedinlink {
+  grid-column-start: 3;
+  grid-row-start: 4;
+  justify-self: end;
 }
 
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-iframe {
-  position: absolute;
-  width: 50%;
-  /* height: 100%;
-  left: 0; top: 0;  */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.description {
+  align-self: end;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  font-size: 3.5vw;
   z-index: 1;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  color: #FFD700;
 }
 
-/* .aspect-ratio {
-  position: relative;
-  width: 50%;
-  height: 0;
-  padding-bottom: 51%;
-}  */
+.header-image {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.footer {
+  background-color: black;
+  min-height: 50px;
+}
+
+.iphone-img1 { grid-area: iphone-img1; }
+
+.iphone-img2 {
+  grid-area: iphone-img2;
+}
+
+.iphone-img3 {
+  grid-area: iphone-img3;
+}
+
+.iphone-img4 {
+  grid-area: iphone-img4;
+}
+
+.ipad-img1 {
+  grid-area: ipad-img1;
+}
+
+.ipad-img2 {
+  grid-area: ipad-img2;
+}
+
+.ipad-img3 {
+  grid-area: ipad-img3;
+}
+
+.ipad-img4 {
+  grid-area: ipad-img4;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+@media(min-width: 420px) {
+
+.preview {
+  display: none;
+}
+
+.description {
+  grid-row-start: 4;
+  align-self: start;
+}
+
+.header-preview {
+  display: block;
+}
+
+.appstorelink {
+  align-self: center;
+}
+
+.linkedinlink {
+  align-self: center;
+}
+
+.grid {
+    display: grid;
+		grid-template-columns: 1fr 1fr;
+     grid-template-areas:
+      "header      header"
+      "iphone-img1 iphone-img2"
+      "iphone-img3 iphone-img4"
+      "ipad-img1   ipad-img2"
+      "ipad-img3   ipad-img4"
+      "footer      footer";
+  
+  }
 
 
-img {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
 }
 
 
-@media(max-width: 768px) {
+@media(min-width: 970px) {
+	.grid {
+  width: 970px;
+	}
 
+  .title h1 {
+    font-size: 70px;
+  }
 
-
-
-
-
-
-
+  .description h2 {
+    font-size: 60px;
+  }
 }
+
+
